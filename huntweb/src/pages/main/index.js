@@ -43,7 +43,7 @@ export default class Main extends Component {
   };
 
   render() {
-    const { products } = this.state;
+    const { page, products, productInfo } = this.state;
 
     return (
       <div className="product-list">
@@ -55,8 +55,12 @@ export default class Main extends Component {
           </article>
         ))}
         <div className="actions">
-          <button onClick={this.prevPage}>Anterior</button>
-          <button onClick={this.nextPage}>Próxima</button>
+          <button disabled={page === 1} onClick={this.prevPage}>
+            Anterior
+          </button>
+          <button disabled={page === productInfo.pages} onClick={this.nextPage}>
+            Próxima
+          </button>
         </div>
       </div>
     );
