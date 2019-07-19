@@ -67,3 +67,25 @@
 .product-list .actions button:hover {
   opacity: 0.7;
 }
+
+.product-list article .buttons-container button {
+  cursor: pointer;
+  height: 42px;
+  border-radius: 5px;
+  border: 2px solid #da552f;
+  color: #da552f;
+  background: none;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  width: 100%;
+}
+.product-list article .buttons-container button:hover {
+  background: #da552f;
+  color: #fff;
+}
