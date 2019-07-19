@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import api from "../../services/api";
 
 import "./styles.css";
@@ -15,6 +16,11 @@ export default class Product extends Component {
 
     this.setState({ product: response.data });
   }
+
+  handleUpdateProduct(product) {
+    console.log(product);
+  }
+
   render() {
     const { product } = this.state;
     return (
@@ -24,6 +30,9 @@ export default class Product extends Component {
         <p>
           URL: <a href={product.url}>{product.url}</a>
         </p>
+        <div className="actions">
+          <Link to={`/products/${product._id}/update`}>Atualizar</Link>
+        </div>
       </div>
     );
   }
