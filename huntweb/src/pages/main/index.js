@@ -43,6 +43,20 @@ export default class Main extends Component {
     this.loadProducts(pageNumber);
   };
 
+  handleRemoveProduct = async product => {
+    const { products } = this.state;
+
+    const updateProducts = products.filter(
+      productos => productos._id !== product
+    );
+
+    this.setState({ products: updateProducts });
+
+    if (products.length !== updateProducts.length) {
+      api.delete(`/products/${product}`);
+    }
+  };
+
   render() {
     const { page, products, productInfo } = this.state;
 
@@ -53,6 +67,15 @@ export default class Main extends Component {
             <strong>{product.title}</strong>
             <p>{product.description}</p>
             <Link to={`/products/${product._id}`}>Acessar</Link>
+            <div className="buttons-container">
+              <button
+                type="button"
+                onClick={() => this.handleRemoveProduct(product._id)}
+              >
+                <i className="fa fa-trash" />
+                Excluir
+              </button>
+            </div>
           </article>
         ))}
         <div className="actions">
